@@ -1,18 +1,18 @@
-#读取配置
+import json
+import os
+
+
+# 读取配置
 def read_config_from_file():
     if os.path.exists("config.json"):
-        try :
-            config_file = open("config.json", "r")
-            config = json.load(config_file)
-        except :
-            config = None
-        finally:
-            config_file.close()
-            return config
-    else :
+        with open("config.json", "r") as config_file:
+            return json.load(config_file)
+    else:
         return None
-#写入配置
-def write_config(config : str):
+
+
+# 写入配置
+def write_config(config: dict):
     config_file = open("config.json", "w")
     json.dump(config, config_file)
     config_file.close()
