@@ -26,7 +26,7 @@ class Searcher:
             response = requests.post("https://api.sayobot.cn/?post", request_dict, timeout=5)
             if response.status_code == 200:
                 # 请求成功时将数据加入结果
-                json_data = json.loads(response.content)
+                json_data = json.loads(response.text)
                 self._result += json_data["data"]
                 offset = ++json_data["endid"]
             else:
