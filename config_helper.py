@@ -21,7 +21,7 @@ def write_config(config: dict):
 def try_init_config():
     with open("config.json", "w") as config_file:
         config = {
-            "songsDirectory" : ".",
-            "defaultNum" : 10
+            "songsDir": ".",
+            "defaultNum": 10
         }
         write_config(config)
